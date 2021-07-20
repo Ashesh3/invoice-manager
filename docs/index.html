@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Docs</title>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.0.0-beta.0/swagger-ui.css" />
+  <style>
+    html {
+      box-sizing: border-box;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      background: #fafafa;
+    }
+
+    .topbar {
+      visibility: hidden
+    }
+  </style>
+</head>
+
+<body>
+  <div id="swagger-ui"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.0.0-beta.0/swagger-ui-bundle.min.js"
+    charset="UTF-8"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.0.0-beta.0/swagger-ui-standalone-preset.min.js"
+    charset="UTF-8"> </script>
+  <script src="./swagger.json.js" charset="UTF-8"> </script>
+  <script>
+    window.onload = function () {
+      const ui = SwaggerUIBundle({
+        spec: { "swagger": "2.0", "info": { "description": "A Simple Invoice Manager", "version": "1.0.0", "title": "Invoice Manager" }, "host": "localhost", "paths": { "/invoice": { "get": { "tags": ["Invoice"], "summary": "Returns list of all Invoices", "description": "Returns list of all Invoices", "produces": ["application/json"], "parameters": [], "responses": { "200": { "description": "successful operation" }, "500": { "description": "internal server error" } } }, "put": { "tags": ["Invoice"], "summary": "Create a new Invoice", "description": "Create a new Invoice", "consumes": ["application/x-www-form-urlencoded"], "produces": ["application/json"], "parameters": [{ "name": "name", "in": "formData", "type": "string" }, { "name": "email", "in": "formData", "type": "string" }, { "name": "issue_date", "in": "formData", "type": "string" }, { "name": "due_date", "in": "formData", "type": "string" }, { "name": "items", "in": "formData", "type": "string" }, { "name": "total", "in": "formData", "type": "integer" }, { "name": "status", "in": "formData", "type": "string" }, { "name": "notes", "in": "formData", "type": "string" }, { "name": "issuer", "in": "formData", "type": "string" }], "responses": { "200": { "description": "successful operation" }, "500": { "description": "internal server error" } } } }, "/invoice/{invoice_id}": { "get": { "tags": ["Invoice"], "summary": "Returns a specific invoice by ID", "description": "Returns a specific invoice by ID", "produces": ["application/json"], "parameters": [{ "name": "invoice_id", "in": "path", "type": "integer", "required": true }], "responses": { "200": { "description": "successful operation" }, "500": { "description": "internal server error" } } }, "patch": { "tags": ["Invoice"], "summary": "Modify a specific invoice by ID", "description": "Modify a specific invoice by ID", "consumes": ["application/x-www-form-urlencoded"], "produces": ["application/json"], "parameters": [{ "name": "invoice_id", "in": "path", "type": "integer", "required": true }, { "name": "name", "in": "formData", "type": "string" }, { "name": "email", "in": "formData", "type": "string" }, { "name": "issue_date", "in": "formData", "type": "string" }, { "name": "due_date", "in": "formData", "type": "string" }, { "name": "items", "in": "formData", "type": "string" }, { "name": "total", "in": "formData", "type": "integer" }, { "name": "status", "in": "formData", "type": "string" }, { "name": "notes", "in": "formData", "type": "string" }, { "name": "issuer", "in": "formData", "type": "string" }], "responses": { "200": { "description": "successful operation" }, "500": { "description": "internal server error" } } }, "delete": { "tags": ["Invoice"], "summary": "Deletes a specific invoice by ID", "description": "Deletes a specific invoice by ID", "produces": ["application/json"], "parameters": [{ "name": "invoice_id", "in": "path", "type": "integer", "required": true }], "responses": { "200": { "description": "successful operation" }, "500": { "description": "internal server error" } } } }, "/invoice/{invoice_id}/email": { "get": { "tags": ["Invoice"], "summary": "Emails a specific invoice by ID", "description": "Emails a specific invoice by ID to the email mentioned in the invoice", "produces": ["application/json"], "parameters": [{ "name": "invoice_id", "in": "path", "type": "integer", "required": true }], "responses": { "200": { "description": "successful operation" }, "500": { "description": "internal server error" } } } } } },
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      });
+
+      window.ui = ui;
+    };
+  </script>
+</body>
+
+</html>

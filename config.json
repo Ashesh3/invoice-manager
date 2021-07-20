@@ -1,0 +1,10 @@
+{
+    "mongodb_uri": "mongodb+srv://------:-------@---.----/----?retryWrites=true&w=majority",
+    "mail": {
+        "host": "",
+        "port": 0,
+        "user": "",
+        "password": "",
+        "from": "admin@site.com"
+    }
+}
