@@ -12,5 +12,6 @@ Method | HTTP request | Description
 [**invoiceInvoiceIdGet**](InvoiceApi.md#invoiceInvoiceIdGet) | **GET** /invoice/{invoice_id} | Returns a specific invoice by ID
 [**invoiceInvoiceIdPatch**](InvoiceApi.md#invoiceInvoiceIdPatch) | **PATCH** /invoice/{invoice_id} | Modify a specific invoice by ID
 [**invoicePut**](InvoiceApi.md#invoicePut) | **PUT** /invoice | Create a new Invoice
+[**invoiceEmailGet**](InvoiceApi.md#invoiceEmailGet) | **GET** /invoice/{invoice_id}/email | Emails a specific invoice by ID
 
 Interactive docs are available at : `/`
